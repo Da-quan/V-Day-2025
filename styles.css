@@ -1,3 +1,68 @@
+/* General Styles */
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('https://www.transparenttextures.com/patterns/spring-flower.png'), pink;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+/* Container Styling */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Title Styling */
+.title {
+    font-size: 3.5em;
+    color: #89cff0; /* Baby blue color */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.button {
+    padding: 20px 60px;
+    font-size: 2em;
+    color: white;
+    background-color: #89cff0; /* Baby blue */
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+}
+
+#no-button {
+    background-color: #b0e0e6; /* Light blue for contrast */
+}
+
+#no-button:hover {
+    background-color: #87ceeb; /* Sky blue on hover */
+}
+
 /* Falling Hearts */
 .heart {
     position: absolute;
