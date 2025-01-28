@@ -9,6 +9,6 @@ noButton.addEventListener("click", () => {
 
 // Add event listener for the "YES" button
 yesButton.addEventListener("click", () => {
-    // Redirect to the second page
+    // Redirect to the Valentine's page
     window.location.href = "valentine.html";
 });
