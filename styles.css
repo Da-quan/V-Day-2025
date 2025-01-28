@@ -41,27 +41,13 @@ body {
     top: 0;
 }
 
-.heart-1 {
-    top: 10%;
-    left: 20%;
-    animation-delay: 0s;
-}
-
-.heart-2 {
-    top: 50%;
-    left: 60%;
-    animation-delay: 1s;
-    width: 70px;
-    height: 70px;
-}
-
-.heart-3 {
-    top: 70%;
-    left: 10%;
-    animation-delay: 2s;
-    width: 40px;
-    height: 40px;
-}
+/* More hearts */
+.heart-1 { top: 10%; left: 20%; animation-delay: 0s; }
+.heart-2 { top: 50%; left: 60%; animation-delay: 1s; width: 70px; height: 70px; }
+.heart-3 { top: 70%; left: 10%; animation-delay: 2s; width: 40px; height: 40px; }
+.heart-4 { top: 20%; left: 30%; animation-delay: 0.5s; width: 60px; height: 60px; }
+.heart-5 { top: 40%; left: 80%; animation-delay: 1.5s; width: 55px; height: 55px; }
+.heart-6 { top: 80%; left: 50%; animation-delay: 2.5s; width: 45px; height: 45px; }
 
 /* Heart Float Animation */
 @keyframes float {
@@ -118,17 +104,47 @@ body {
     background-color: #4d4d4d;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-    .title {
-        font-size: 2.5em;
-    }
+/* Falling Hearts Animation */
+.falling-heart {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #ff6b81;
+    transform: rotate(45deg);
+    animation: fall linear infinite;
+    z-index: 1000;
+    border-radius: 5px;
+}
 
-    .subtitle {
-        font-size: 1.2em;
-    }
+.falling-heart:before,
+.falling-heart:after {
+    content: '';
+    position: absolute;
+    background-color: #ff6b81;
+    border-radius: 50%;
+}
 
-    .button {
-        font-size: 1.2em;
+.falling-heart:before {
+    width: 30px;
+    height: 30px;
+    top: -15px;
+    left: 0;
+}
+
+.falling-heart:after {
+    width: 30px;
+    height: 30px;
+    left: 15px;
+    top: 0;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 0;
     }
 }
