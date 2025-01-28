@@ -1,10 +1,9 @@
 /* General Styles */
 body {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Ensure the font is applied */
     margin: 0;
     padding: 0;
-    background: url('https://www.transparenttextures.com/patterns/spring-flower.png'), pink;
-    background-size: cover;
+    background-color: pink; /* Use a solid pink background instead of image */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,16 +18,16 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.8); /* Slight transparency for container */
     border-radius: 20px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Shadow for some depth */
 }
 
 /* Title Styling */
 .title {
     font-size: 3.5em;
     color: #89cff0; /* Baby blue color */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Light shadow effect */
     margin-bottom: 20px;
 }
 
