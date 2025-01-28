@@ -1,105 +1,50 @@
 /* General Styles */
 body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
-    text-align: center;
-    background: linear-gradient(to bottom, #ff9a9e, #fecfef, #ffdde1);
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    background: url('https://www.transparenttextures.com/patterns/spring-flower.png'), pink;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
-    position: relative;
+    text-align: center;
 }
 
-/* Decorative Hearts */
-.decor .heart {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background-color: #ff6b81;
-    transform: rotate(45deg);
-    animation: float 4s infinite ease-in-out;
-    border-radius: 10px;
+/* Container Styling */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-.decor .heart:before,
-.decor .heart:after {
-    content: "";
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background-color: #ff6b81;
-    border-radius: 50%;
-}
-
-.decor .heart:before {
-    top: -25px;
-    left: 0;
-}
-
-.decor .heart:after {
-    left: 25px;
-    top: 0;
-}
-
-.heart-1 {
-    top: 10%;
-    left: 20%;
-    animation-delay: 0s;
-}
-
-.heart-2 {
-    top: 50%;
-    left: 60%;
-    animation-delay: 1s;
-    width: 70px;
-    height: 70px;
-}
-
-.heart-3 {
-    top: 70%;
-    left: 10%;
-    animation-delay: 2s;
-    width: 40px;
-    height: 40px;
-}
-
-/* Heart Float Animation */
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0) rotate(45deg);
-    }
-    50% {
-        transform: translateY(-20px) rotate(45deg);
-    }
-}
-
-/* Title and Subtitle */
+/* Title Styling */
 .title {
-    font-size: 3em;
-    color: #ffffff;
-    margin-top: 20vh;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-}
-
-.subtitle {
-    font-size: 1.5em;
-    color: #ffe6e6;
-    margin-top: 10px;
+    font-size: 3.5em;
+    color: #89cff0; /* Baby blue color */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
 }
 
 /* Buttons */
 .buttons {
-    margin-top: 30px;
+    display: flex;
+    gap: 20px;
 }
 
 .button {
-    padding: 15px 40px;
-    margin: 10px;
-    font-size: 1.5em;
+    padding: 20px 60px;
+    font-size: 2em;
     color: white;
-    background-color: #ff6b81;
+    background-color: #89cff0; /* Baby blue */
     border: none;
-    border-radius: 50px;
+    border-radius: 15px;
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
@@ -111,24 +56,9 @@ body {
 }
 
 #no-button {
-    background-color: #808080;
+    background-color: #b0e0e6; /* Light blue for contrast */
 }
 
 #no-button:hover {
-    background-color: #4d4d4d;
-}
-
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-    .title {
-        font-size: 2.5em;
-    }
-
-    .subtitle {
-        font-size: 1.2em;
-    }
-
-    .button {
-        font-size: 1.2em;
-    }
+    background-color: #87ceeb; /* Sky blue on hover */
 }
