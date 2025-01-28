@@ -66,10 +66,10 @@ body {
 /* Heart Float Animation */
 @keyframes float {
     0%, 100% {
-        transform: translateY(0) rotate(45deg);
+        transform: translateY(0) ;
     }
     50% {
-        transform: translateY(-20px) rotate(45deg);
+        transform: translateY(-20px) ;
     }
 }
 
@@ -156,11 +156,11 @@ body {
 /* Falling Animation */
 @keyframes fall {
     0% {
-        transform: translateY(-50px) rotate(45deg); /* Start above screen */
+        transform: translateY(-50px); /* Start above screen */
         opacity: 1;
     }
     100% {
-        transform: translateY(100vh) rotate(45deg); /* End at the bottom of the screen */
+        transform: translateY(100vh); /* End at the bottom of the screen */
         opacity: 0.5;
     }
 }
