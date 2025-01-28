@@ -121,6 +121,7 @@ body {
 /* Falling Hearts */
 .falling-heart {
     position: absolute;
+    top: -50px; /* Start just above the visible screen */
     width: 30px;
     height: 30px;
     background-color: #ff6b81;
@@ -155,11 +156,11 @@ body {
 /* Falling Animation */
 @keyframes fall {
     0% {
-        transform: translateY(0) rotate(45deg);
+        transform: translateY(-50px) rotate(45deg); /* Start above screen */
         opacity: 1;
     }
     100% {
-        transform: translateY(100vh) rotate(45deg);
-        opacity: 0;
+        transform: translateY(100vh) rotate(45deg); /* End at the bottom of the screen */
+        opacity: 0.5;
     }
 }

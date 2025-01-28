@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Function to create falling hearts
     const createFallingHearts = () => {
-        const heartCount = 50; // Number of hearts to create
-
+        const heartCount = 10; // Number of hearts to create at once
         for (let i = 0; i < heartCount; i++) {
             createSingleHeart();
         }
@@ -14,9 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
         heart.classList.add("falling-heart");
 
         // Randomize initial position and animation duration
-        heart.style.left = `${Math.random() * 100}vw`;
-        heart.style.animationDuration = `${2 + Math.random() * 3}s`; // Between 2 and 5 seconds
-        heart.style.opacity = Math.random(); // Random opacity for effect
+        heart.style.left = `${Math.random() * 100}vw`; // Random horizontal position
+        heart.style.animationDuration = `${3 + Math.random() * 2}s`; // Between 3 and 5 seconds
 
         // Append the heart to the body
         document.body.appendChild(heart);
@@ -27,7 +25,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    // Start the falling hearts animation
-    createFallingHearts();
-    setInterval(createFallingHearts, 3000); // Add more hearts every 3 seconds
+    // Start creating hearts
+    const intervalId = setInterval(createFallingHearts, 1000); // Create hearts every second
+
+    // Stop creating hearts after 10 seconds
+    setTimeout(() => {
+        clearInterval(intervalId);
+    }, 10000);
 });
