@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    background-color: #ff6b81;
+    color: white;
+    padding: 20px 0;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+section {
+    margin: 20px 0;
+    padding: 10px;
+}
+
+.intro p {
+    font-size: 1.2em;
+}
+
+.gallery .image-gallery img {
+    width: 30%;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #ff6b81;
+    color: white;
+    padding: 10px 0;
+    font-size: 1.2em;
+}
