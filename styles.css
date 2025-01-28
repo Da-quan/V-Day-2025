@@ -41,13 +41,27 @@ body {
     top: 0;
 }
 
-/* More hearts */
-.heart-1 { top: 10%; left: 20%; animation-delay: 0s; }
-.heart-2 { top: 50%; left: 60%; animation-delay: 1s; width: 70px; height: 70px; }
-.heart-3 { top: 70%; left: 10%; animation-delay: 2s; width: 40px; height: 40px; }
-.heart-4 { top: 20%; left: 30%; animation-delay: 0.5s; width: 60px; height: 60px; }
-.heart-5 { top: 40%; left: 80%; animation-delay: 1.5s; width: 55px; height: 55px; }
-.heart-6 { top: 80%; left: 50%; animation-delay: 2.5s; width: 45px; height: 45px; }
+.heart-1 {
+    top: 10%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.heart-2 {
+    top: 50%;
+    left: 60%;
+    animation-delay: 1s;
+    width: 70px;
+    height: 70px;
+}
+
+.heart-3 {
+    top: 70%;
+    left: 10%;
+    animation-delay: 2s;
+    width: 40px;
+    height: 40px;
+}
 
 /* Heart Float Animation */
 @keyframes float {
@@ -104,7 +118,7 @@ body {
     background-color: #4d4d4d;
 }
 
-/* Falling Hearts Animation */
+/* Falling Hearts */
 .falling-heart {
     position: absolute;
     width: 30px;
@@ -138,6 +152,7 @@ body {
     top: 0;
 }
 
+/* Falling Animation */
 @keyframes fall {
     0% {
         transform: translateY(0) rotate(45deg);
