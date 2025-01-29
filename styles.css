@@ -41,9 +41,9 @@ body {
 }
 
 /* Position and size for hearts (on sides, floating vertically) */
-.heart-1 { top: 5%; left: 0%; animation-delay: 0s; width: 50px; height: 50px; }
-.heart-2 { top: 10%; left: 0%; animation-delay: 1s; width: 70px; height: 70px; }
-.heart-3 { top: 15%; left: 0%; animation-delay: 2s; width: 40px; height: 40px; }
+.heart-1 { top: 5%; left: 10%; animation-delay: 0s; width: 50px; height: 50px; }
+.heart-2 { top: 10%; left: 15%; animation-delay: 1s; width: 70px; height: 70px; }
+.heart-3 { top: 15%; left: 20%; animation-delay: 2s; width: 40px; height: 40px; }
 .heart-4 { top: 20%; left: 0%; animation-delay: 3s; width: 60px; height: 60px; }
 .heart-5 { top: 25%; left: 0%; animation-delay: 4s; width: 45px; height: 45px; }
 .heart-6 { top: 30%; left: 0%; animation-delay: 5s; width: 55px; height: 55px; }
