@@ -24,7 +24,7 @@
                     <div class="cover-text">Valentine's Day Memories</div>
                 </div>
                 <div class="white-covers-container">
-                    <div class="white-cover left" id="leftCover"></div>
+                    <div class="white-cover left" id="leftCover">Date:</div>
                     <div class="white-cover right" id="rightCover"></div>
                 </div>
             </div>
@@ -36,7 +36,16 @@
     </footer>
 
     <script>
-        // Existing book open and close script
+        // Map image numbers to their respective dates
+        const dateImageMap = {
+            '2.jpg': 'February 14, 2022',
+            '3.jpg': 'February 14, 2023',
+            '4.jpg': 'February 14, 2024'
+        };
+
+        let currentImage = '2.jpg'; // Start with '2.jpg' (February 14, 2022)
+
+        // Book open/close logic
         const book = document.getElementById('book');
         const cover = book.querySelector('.cover');
         const whiteCoversContainer = document.querySelector('.white-covers-container');
@@ -80,6 +89,9 @@
             cover.style.transform = 'rotateY(-180deg)';
             whiteCoversContainer.style.visibility = 'visible';
             whiteCoversContainer.style.transform = 'translateX(0)';
+            // Set initial date and image (first time opening)
+            rightCover.style.backgroundImage = "url('2.jpg')";
+            leftCover.textContent = `Date: ${dateImageMap['2.jpg']}`;
         }
 
         function resetBook() {
@@ -91,56 +103,53 @@
             whiteCoversContainer.style.transform = 'translateX(-50%)';
             cover.style.transform = 'rotateY(0)';
             pages.forEach(page => page.style.display = 'none'); // Hide all pages
+            // Reset image and date
+            currentImage = '2.jpg';
+            rightCover.style.backgroundImage = "url('2.jpg')";
+            leftCover.textContent = `Date: ${dateImageMap[currentImage]}`;
         }
 
         cover.addEventListener('click', openBook);
 
-        // New script to change images on the right cover click
-        const rightCover = document.getElementById('rightCover'); // Get the right cover element
-        const leftCover = document.getElementById('leftCover'); // Get the left cover element
+        // Add click event listener to the right cover (move forward)
+        const rightCover = document.getElementById('rightCover');
+        const leftCover = document.getElementById('leftCover');
 
-        // Initialize the current image variable
-        let currentImage = '2.jpg'; // Start with 2.jpg as the initial image
-
-        // Add click event listener to the right cover
+        // Add click event listener to the right cover (move forward)
         rightCover.addEventListener('click', function() {
-            // Check the current image and update it accordingly
+            // Flip to the next image (forward)
             if (currentImage === '2.jpg') {
+                currentImage = '3.jpg'; // Move to the next image (2023)
                 rightCover.style.backgroundImage = "url('3.jpg')";
-                currentImage = '3.jpg'; // Update the current image to 3.jpg
             } else if (currentImage === '3.jpg') {
+                currentImage = '4.jpg'; // Move to the next image (2024)
                 rightCover.style.backgroundImage = "url('4.jpg')";
-                currentImage = '4.jpg'; // Update the current image to 4.jpg
             } else if (currentImage === '4.jpg') {
-                // After reaching 4.jpg, reset to 1.jpg (cover image)
+                currentImage = '2.jpg'; // Move back to the first image (2022)
                 rightCover.style.backgroundImage = "url('2.jpg')";
-                currentImage = '2.jpg'; // Reset back to 2.jpg (start over)
-                resetBook(); // Close the book after showing 4.jpg
-            } else if (currentImage === '1.jpg') {
-                // After the cover, go to 2.jpg to continue the loop
-                rightCover.style.backgroundImage = "url('2.jpg')";
-                currentImage = '2.jpg'; // Go to 2.jpg
+                resetBook(); // Close the book after reaching the last image
             }
+
+            // Update the date based on the current image
+            leftCover.textContent = `Date: ${dateImageMap[currentImage]}`;
         });
 
-        // Add click event listener to the left cover (go back to previous image)
+        // Add click event listener to the left cover (move backward)
         leftCover.addEventListener('click', function() {
-            // Check the current image and update it accordingly
-            if (currentImage === '4.jpg') {
-                rightCover.style.backgroundImage = "url('3.jpg')";
-                currentImage = '3.jpg'; // Update the current image to 3.jpg
+            // Flip to the previous image (backward)
+            if (currentImage === '2.jpg') {
+                resetBook(); // Reset the book when going back to the cover from '2.jpg'
+                return;
             } else if (currentImage === '3.jpg') {
+                currentImage = '2.jpg'; // Move to the previous image (2022)
                 rightCover.style.backgroundImage = "url('2.jpg')";
-                currentImage = '2.jpg'; // Update the current image to 2.jpg
-            } else if (currentImage === '2.jpg') {
-                // rightCover.style.backgroundImage = "url('1.jpg')";
-                currentImage = '1.jpg'; // Update the current image to 1.jpg (cover image)
-                resetBook();
-            } else if (currentImage === '1.jpg') {
-                // Stay on 1.jpg (cover image), no change
-                rightCover.style.backgroundImage = "url('1.jpg')";
-                currentImage = '1.jpg'; // No change to 1.jpg
+            } else if (currentImage === '4.jpg') {
+                currentImage = '3.jpg'; // Move to the previous image (2023)
+                rightCover.style.backgroundImage = "url('3.jpg')";
             }
+
+            // Update the date based on the current image
+            leftCover.textContent = `Date: ${dateImageMap[currentImage]}`;
         });
     </script>
 </body>

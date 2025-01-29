@@ -181,7 +181,20 @@ body {
 
 .white-cover.left {
     left: 0;
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color: #f00;
+    text-align: center;
+    padding: 10px;
+    transform: rotateY(0deg); /* This flips the left cover by 180 degrees */
 }
+
 
 .white-cover.right {
     position: absolute;
