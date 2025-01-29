@@ -8,6 +8,20 @@
     <script defer src="hearts.js"></script>
 </head>
 <body>
+    <!-- Book Container -->
+    <div class="book-container">
+        <div class="book-frame" id="book-frame">
+            <!-- Left Page -->
+            <div class="page-left">
+                <div class="page-content" style="background-image: url('your-photo1.jpg');"></div>
+            </div>
+            <!-- Right Page -->
+            <div class="page-right">
+                <div class="page-content" style="background-image: url('your-photo2.jpg');"></div>
+            </div>
+        </div>
+    </div>
+
     <header>
         <h1>Happy Valentine's Day, [Name]!</h1>
     </header>
@@ -37,18 +51,15 @@
     <script>
         const pages = document.querySelectorAll('.page');
         let currentPage = 0;
+        const bookFrame = document.getElementById('book-frame');
 
         function updatePages() {
-            pages.forEach((page, index) => {
-                if (index === currentPage) {
-                    page.style.transform = 'translateX(0)';
-                    page.style.animation = 'flip 1s forwards'; // Add the page flip animation
-                } else if (index < currentPage) {
-                    page.style.transform = 'translateX(-100%)';
-                } else {
-                    page.style.transform = 'translateX(100%)';
-                }
-            });
+            // Adjust the rotation of the book frame to simulate the page flip
+            if (currentPage % 2 === 0) {
+                bookFrame.style.transform = 'rotateY(-180deg)';
+            } else {
+                bookFrame.style.transform = 'rotateY(0deg)';
+            }
         }
 
         // Function to automatically move to the next page
