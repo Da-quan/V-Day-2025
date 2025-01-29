@@ -146,10 +146,18 @@ body {
 }
 
 .page {
-    background-size: cover;
-    background-position: center;
-    transform: rotateY(180deg);
-    display: none; /* Initially hide all pages */
+    position: absolute;
+    width: 50%;
+    height: 120%;  /* Increased height */
+    background-color: white;
+    border: 2px solid #ccc;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 10px;
 }
 
 /* Flip effect when book is opened */
@@ -176,7 +184,18 @@ body {
 }
 
 .white-cover.right {
+    position: absolute;
     right: 0;
+    top: 50%; /* Centers the element vertically */
+    transform: translateY(-50%); /* Adjusts for exact vertical centering */
+    width: 50%; /* Adjust width as needed */
+    height: 100%; /* Full height of the page */
+    background-image: url('2.jpg');
+    background-size: 70%; /* Adjust size of the image */
+    background-repeat: no-repeat;
+    background-position: center; /* Centers the image inside the container */
+    z-index: 1;
+    border-radius: 10px;
 }
 
 .white-covers-container {
@@ -190,6 +209,7 @@ body {
     transform: translateX(-50%);
     transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     visibility: hidden;
+    
 }
 
 .book.open .white-covers-container {
