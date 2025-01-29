@@ -19,9 +19,6 @@
     <section class="gallery">
         <h2>Our Best Moments Together</h2>
         <div class="flipbook">
-            <div class="left" onclick="prevPage()">&#8592;</div>
-            <div class="right" onclick="nextPage()">&#8594;</div>
-
             <div id="page-1" class="page" style="background-image: url('your-photo1.jpg');"></div>
             <div id="page-2" class="page" style="background-image: url('your-photo2.jpg'); transform: translateX(100%);"></div>
             <div id="page-3" class="page" style="background-image: url('your-photo3.jpg'); transform: translateX(100%);"></div>
@@ -45,6 +42,7 @@
             pages.forEach((page, index) => {
                 if (index === currentPage) {
                     page.style.transform = 'translateX(0)';
+                    page.style.animation = 'flip 1s forwards'; // Add the page flip animation
                 } else if (index < currentPage) {
                     page.style.transform = 'translateX(-100%)';
                 } else {
@@ -53,19 +51,18 @@
             });
         }
 
+        // Function to automatically move to the next page
         function nextPage() {
             if (currentPage < pages.length - 1) {
                 currentPage++;
-                updatePages();
+            } else {
+                currentPage = 0; // Reset to the first page after the last page
             }
+            updatePages();
         }
 
-        function prevPage() {
-            if (currentPage > 0) {
-                currentPage--;
-                updatePages();
-            }
-        }
+        // Set interval to automatically flip pages every 3 seconds
+        setInterval(nextPage, 3000); 
 
         // Initial call to set the first page
         updatePages();
