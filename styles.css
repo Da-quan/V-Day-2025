@@ -192,6 +192,58 @@ body {
     }
 }
 
+/* 3D Book Background */
+.book-background {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 80%;
+    height: 100%;
+    transform: translateX(-50%);
+    z-index: -1; /* Place behind content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1500px; /* Creates the 3D effect */
+}
+
+/* Left page (book's left side) */
+.page-left {
+    width: 45%;
+    height: 80%;
+    background: linear-gradient(135deg, #f9d6d1 0%, #f3b0b0 100%);
+    border-radius: 10px;
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
+    transform-origin: right center;
+    transform: rotateY(10deg); /* 3D rotation for depth */
+    transition: transform 0.5s ease;
+}
+
+/* Right page (book's right side) */
+.page-right {
+    width: 45%;
+    height: 80%;
+    background: linear-gradient(135deg, #f9d6d1 0%, #f3b0b0 100%);
+    border-radius: 10px;
+    box-shadow: -2px 0 20px rgba(0, 0, 0, 0.3);
+    transform-origin: left center;
+    transform: rotateY(-10deg); /* 3D rotation for depth */
+    transition: transform 0.5s ease;
+}
+
+/* Page Flip Animation (optional for actual page flip effect) */
+@keyframes flip {
+    0% {
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(180deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
 /* Gallery Styles */
 .gallery {
     position: relative;
