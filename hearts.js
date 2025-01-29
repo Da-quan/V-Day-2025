@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Function to create falling hearts
     const createFallingHearts = () => {
-        const heartCount = 10; // Number of hearts to create at once
+        const heartCount = 5; // Number of hearts to create at once
         for (let i = 0; i < heartCount; i++) {
             createSingleHeart();
         }
@@ -14,7 +14,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Randomize initial position and animation duration
         heart.style.left = `${Math.random() * 100}vw`; // Random horizontal position
-        heart.style.animationDuration = `${3 + Math.random() * 2}s`; // Between 3 and 5 seconds
+        heart.style.animationDuration = `${5 + Math.random() * 5}s`; // Between 5 and 10 seconds to account for different heights
+
+        // Randomize rotation
+        const randomRotation = Math.random() > 0.5 ? '-90deg' : '0deg';
+        heart.style.setProperty('--rotation', randomRotation); // Use a CSS variable for rotation
 
         // Append the heart to the body
         document.body.appendChild(heart);
@@ -28,8 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Start creating hearts
     const intervalId = setInterval(createFallingHearts, 1000); // Create hearts every second
 
-    // Stop creating hearts after 10 seconds
+    // Stop creating hearts after 30 seconds (adjustable time limit)
     setTimeout(() => {
         clearInterval(intervalId);
-    }, 10000);
+    }, 30000); // 30 seconds for continuous heart generation
 });

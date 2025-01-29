@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Valentine's Day!</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="hearts.js"></script>
+    <link rel="stylesheet" href="valentine_css.css">
+    <script src="hearts.js"></script>
 </head>
 <body>
     <header>
@@ -16,21 +16,22 @@
         <p>Today, I just want to remind you how special you are to me.</p>
     </section>
 
-    <section class="gallery">
-        <h2>Our Best Moments Together</h2>
-        <div class="flipbook">
-            <div class="left" onclick="prevPage()"></div>
-            <div class="right" onclick="nextPage()"></div>
-
-            <div id="page-1" class="page" style="background-image: url('your-photo1.jpg');"></div>
-            <div id="page-2" class="page" style="background-image: url('your-photo2.jpg'); transform: translateX(100%);"></div>
-            <div id="page-3" class="page" style="background-image: url('your-photo3.jpg'); transform: translateX(100%);"></div>
-        </div>
-    </section>
-
     <section class="message">
-        <h2>A Little Message Just for You</h2>
-        <p>I cherish every moment we've spent together, and I look forward to many more. You mean the world to me.</p>
+        <h2>Our Best Moments and a Little Mess Just for You</h2>
+        <div class="book-container">
+            <div class="book" id="book">
+                <div class="cover" style="background-image: url('1.jpg');">
+                    <div class="cover-text">Valentine's Day Memories</div>
+                </div>
+                <div class="page page-1" style="background-image: url('2.jpg');"></div>
+                <div class="page page-2" style="background-image: url('3.jpg');"></div>
+                <div class="page page-3" style="background-image: url('4.jpg');"></div>
+                <div class="white-covers-container">
+                    <div class="white-cover left"></div>
+                    <div class="white-cover right"></div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <footer>
@@ -38,34 +39,63 @@
     </footer>
 
     <script>
-        const pages = document.querySelectorAll('.page');
+        const book = document.getElementById('book');
+        const cover = book.querySelector('.cover');
+        const whiteCoversContainer = document.querySelector('.white-covers-container');
+        const pages = Array.from(book.querySelectorAll('.page'));
+        const totalPages = pages.length;
         let currentPage = 0;
+        let isOpen = false;
 
-        function updatePages() {
-            pages.forEach((page, index) => {
-                if (index === currentPage) {
-                    page.style.transform = 'translateX(0)';
-                } else if (index < currentPage) {
-                    page.style.transform = 'translateX(-100%)';
-                } else {
-                    page.style.transform = 'translateX(100%)';
-                }
-            });
-        }
+        function openBook() {
+            if (isOpen && currentPage < totalPages) {
+                // Flip the pages and place images on the right side
+                pages.forEach((page, index) => {
+                    if (index === currentPage) {
+                        page.style.transform = 'rotateY(0)';
+                        page.classList.add('active');
+                        page.style.display = 'block'; // Show the current page
+                    } else {
+                        page.style.transform = 'rotateY(180deg)';
+                        page.classList.remove('active');
+                        page.style.display = 'none'; // Hide non-current pages
+                    }
+                });
 
-        function nextPage() {
-            if (currentPage < pages.length - 1) {
+                // Adjust white covers position to the right side
+                whiteCoversContainer.style.transform = 'translateX(50%)';
+
                 currentPage++;
-                updatePages();
+            } else if (isOpen) {
+                // Reset book when all pages have been viewed
+                resetBook();
+            } else {
+                // Start opening the book
+                isOpen = true;
+                book.classList.add('open');
+                showWhiteCovers();
             }
         }
 
-        function prevPage() {
-            if (currentPage > 0) {
-                currentPage--;
-                updatePages();
-            }
+        function showWhiteCovers() {
+            // Rotate cover and show white pages
+            cover.style.transform = 'rotateY(-180deg)';
+            whiteCoversContainer.style.visibility = 'visible';
+            whiteCoversContainer.style.transform = 'translateX(0)';
         }
+
+        function resetBook() {
+            // Reset the book to its initial state
+            book.classList.remove('open');
+            currentPage = 0;
+            isOpen = false;
+            whiteCoversContainer.style.visibility = 'hidden';
+            whiteCoversContainer.style.transform = 'translateX(-50%)';
+            cover.style.transform = 'rotateY(0)';
+            pages.forEach(page => page.style.display = 'none'); // Hide all pages
+        }
+
+        cover.addEventListener('click', openBook);
     </script>
 </body>
 </html>

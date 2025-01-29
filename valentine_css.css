@@ -1,0 +1,220 @@
+/* General Styles */
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    text-align: center;
+    background: linear-gradient(to bottom, #ff9a9e, #fecfef, #ffdde1);
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    height: 100%;
+    position: relative;
+}
+
+/* Cover Container */
+.cover-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Aligns text to the top */
+    position: relative;
+    width: 100%;
+    height: 400px; /* Adjust the height as needed */
+}
+
+/* Cover Image */
+.cover {
+    background-image: url('1.jpg');
+    background-size: 70%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Text Styling */
+.cover-text {
+    margin-top: -30px; /* Moves the text above the cover */
+    font-size: 24px; /* Adjust the font size */
+    color: white; /* Text color */
+    font-weight: bold; /* Make text bold */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional: Adds a shadow for better visibility */
+}
+
+/* Falling Hearts */
+.falling-heart {
+    position: absolute;
+    top: -50px;
+    width: 30px;
+    height: 30px;
+    background-color: #ff6b81;
+    z-index: 1000;
+    border-radius: 5px;
+    animation: fall 6s ease-in-out infinite;
+    transform-origin: center;
+}
+
+/* Heart Shape Creation */
+.falling-heart:before,
+.falling-heart:after {
+    content: '';
+    position: absolute;
+    background-color: #ff6b81;
+    border-radius: 50%;
+}
+
+.falling-heart:before {
+    width: 30px;
+    height: 30px;
+    top: -15px;
+    left: 0;
+}
+
+.falling-heart:after {
+    width: 30px;
+    height: 30px;
+    left: 15px;
+    top: 0;
+}
+
+/* Falling and Swinging Animation */
+@keyframes fall {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 1;
+    }
+    25% {
+        transform: translateY(25vh) rotate(-90deg);
+    }
+    50% {
+        transform: translateY(50vh) rotate(0deg);
+    }
+    75% {
+        transform: translateY(75vh) rotate(90deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+}
+
+/* Sticky positioning for book container */
+.book-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: sticky;
+    top: 80px;
+    z-index: 10;
+}
+
+/* Book styles */
+.book {
+    width: 600px;
+    height: 400px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Cover and pages */
+.cover, .page {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: white;
+    border: 2px solid #ccc;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.cover {
+    z-index: 2;
+    transition: transform 1s;
+}
+
+.page {
+    background-size: cover;
+    background-position: center;
+    transform: rotateY(180deg);
+    display: none; /* Initially hide all pages */
+}
+
+/* Flip effect when book is opened */
+.book.open .cover {
+    transform: rotateY(-180deg);
+    left: -50%;
+}
+
+/* White covers with rounded corners */
+.white-cover {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    background: white;
+    border: 1px solid #ddd;
+    z-index: 1;
+    transform: rotateY(180deg);
+    border-radius: 10px;
+}
+
+.white-cover.left {
+    left: 0;
+}
+
+.white-cover.right {
+    right: 0;
+}
+
+.white-covers-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateX(-50%);
+    transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    visibility: hidden;
+}
+
+.book.open .white-covers-container {
+    visibility: visible;
+    left: 0%;
+    transform: translateX(0);
+}
+
+/* Ensure page images are centered when shown */
+.page img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+}
+
+/* Footer styles */
+footer {
+    font-size: 1.2em;
+    padding: 20px;
+}
+
+/* Add active page styling */
+.page.active {
+    border: 3px solid #ff6b81; /* Highlight active page */
+    box-shadow: 0 0 10px rgba(255, 107, 129, 0.7); /* Glow effect */
+}
