@@ -19,8 +19,8 @@
     <section class="gallery">
         <h2>Our Best Moments Together</h2>
         <div class="flipbook">
-            <div class="left" onclick="prevPage()"></div>
-            <div class="right" onclick="nextPage()"></div>
+            <div class="left" onclick="prevPage()">&#8592;</div>
+            <div class="right" onclick="nextPage()">&#8594;</div>
 
             <div id="page-1" class="page" style="background-image: url('your-photo1.jpg');"></div>
             <div id="page-2" class="page" style="background-image: url('your-photo2.jpg'); transform: translateX(100%);"></div>
@@ -66,6 +66,9 @@
                 updatePages();
             }
         }
+
+        // Initial call to set the first page
+        updatePages();
     </script>
 </body>
 </html>
