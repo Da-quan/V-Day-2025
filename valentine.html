@@ -23,12 +23,9 @@
                 <div class="cover" style="background-image: url('1.jpg');">
                     <div class="cover-text">Valentine's Day Memories</div>
                 </div>
-                <div class="page page-1" style="background-image: url('2.jpg');"></div>
-                <div class="page page-2" style="background-image: url('3.jpg');"></div>
-                <div class="page page-3" style="background-image: url('4.jpg');"></div>
                 <div class="white-covers-container">
-                    <div class="white-cover left"></div>
-                    <div class="white-cover right"></div>
+                    <div class="white-cover left" id="leftCover"></div>
+                    <div class="white-cover right" id="rightCover"></div>
                 </div>
             </div>
         </div>
@@ -39,6 +36,7 @@
     </footer>
 
     <script>
+        // Existing book open and close script
         const book = document.getElementById('book');
         const cover = book.querySelector('.cover');
         const whiteCoversContainer = document.querySelector('.white-covers-container');
@@ -96,6 +94,54 @@
         }
 
         cover.addEventListener('click', openBook);
+
+        // New script to change images on the right cover click
+        const rightCover = document.getElementById('rightCover'); // Get the right cover element
+        const leftCover = document.getElementById('leftCover'); // Get the left cover element
+
+        // Initialize the current image variable
+        let currentImage = '2.jpg'; // Start with 2.jpg as the initial image
+
+        // Add click event listener to the right cover
+        rightCover.addEventListener('click', function() {
+            // Check the current image and update it accordingly
+            if (currentImage === '2.jpg') {
+                rightCover.style.backgroundImage = "url('3.jpg')";
+                currentImage = '3.jpg'; // Update the current image to 3.jpg
+            } else if (currentImage === '3.jpg') {
+                rightCover.style.backgroundImage = "url('4.jpg')";
+                currentImage = '4.jpg'; // Update the current image to 4.jpg
+            } else if (currentImage === '4.jpg') {
+                // After reaching 4.jpg, reset to 1.jpg (cover image)
+                rightCover.style.backgroundImage = "url('2.jpg')";
+                currentImage = '2.jpg'; // Reset back to 2.jpg (start over)
+                resetBook(); // Close the book after showing 4.jpg
+            } else if (currentImage === '1.jpg') {
+                // After the cover, go to 2.jpg to continue the loop
+                rightCover.style.backgroundImage = "url('2.jpg')";
+                currentImage = '2.jpg'; // Go to 2.jpg
+            }
+        });
+
+        // Add click event listener to the left cover (go back to previous image)
+        leftCover.addEventListener('click', function() {
+            // Check the current image and update it accordingly
+            if (currentImage === '4.jpg') {
+                rightCover.style.backgroundImage = "url('3.jpg')";
+                currentImage = '3.jpg'; // Update the current image to 3.jpg
+            } else if (currentImage === '3.jpg') {
+                rightCover.style.backgroundImage = "url('2.jpg')";
+                currentImage = '2.jpg'; // Update the current image to 2.jpg
+            } else if (currentImage === '2.jpg') {
+                // rightCover.style.backgroundImage = "url('1.jpg')";
+                currentImage = '1.jpg'; // Update the current image to 1.jpg (cover image)
+                resetBook();
+            } else if (currentImage === '1.jpg') {
+                // Stay on 1.jpg (cover image), no change
+                rightCover.style.backgroundImage = "url('1.jpg')";
+                currentImage = '1.jpg'; // No change to 1.jpg
+            }
+        });
     </script>
 </body>
 </html>

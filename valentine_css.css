@@ -186,14 +186,14 @@ body {
 .white-cover.right {
     position: absolute;
     right: 0;
-    top: 50%; /* Centers the element vertically */
-    transform: translateY(-50%); /* Adjusts for exact vertical centering */
-    width: 50%; /* Adjust width as needed */
-    height: 100%; /* Full height of the page */
-    background-image: url('2.jpg');
-    background-size: 70%; /* Adjust size of the image */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50%;
+    height: 100%;
+    background-image: url('2.jpg'); /* Initial image */
+    background-size: 70%;
     background-repeat: no-repeat;
-    background-position: center; /* Centers the image inside the container */
+    background-position: center;
     z-index: 1;
     border-radius: 10px;
 }
