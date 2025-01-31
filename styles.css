@@ -62,8 +62,38 @@ body {
 .heart-18 { top: 75%; left: 35%; animation-delay: 17s; width: 60px; height: 60px; }
 .heart-19 { top: 50%; left: 65%; animation-delay: 18s; width: 45px; height: 45px; }
 .heart-20 { top: 75%; left: 65%; animation-delay: 19s; width: 50px; height: 50px; }
-.heart-21 { top: 50%; left: 50%; animation-delay: 18s; width: 45px; height: 45px; }
+/* .heart-21 { top: 50%; left: 50%; animation-delay: 18s; width: 45px; height: 45px; } */
 .heart-22 { top: 75%; left: 50%; animation-delay: 19s; width: 50px; height: 50px; }
+
+.heart-23 { top: 12.5%; left: 12.5%; animation-delay: 19s; width: 50px; height: 50px; }
+.heart-24 { top: 37.5%; left: 12.5%; animation-delay: 19s; width: 50px; height: 50px; }
+.heart-25 { top: 62.5%; left: 12.5%; animation-delay: 19s; width: 50px; height: 50px; }
+.heart-26 { top: 62.5%; left: 27.5%; animation-delay: 19s; width: 50px; height: 50px; }
+.heart-27 { top: 62.5%; left: 42.5%; animation-delay: 19s; width: 50px; height: 50px; }
+.heart-28 { top: 62.5%; left: 57.5%; animation-delay: 19s; width: 50px; height: 50px; }
+.heart-29 { top: 62.5%; left: 72.5%; animation-delay: 19s; width: 50px; height: 50px; }
+.heart-30 { top: 62.5%; left: 87.5%; animation-delay: 19s; width: 50px; height: 50px; }
+.heart-31 { top: 12.5%; left: 87.5%; animation-delay: 19s; width: 50px; height: 50px; }
+.heart-32 { top: 37.5%; left: 87.5%; animation-delay: 19s; width: 50px; height: 50px; }
+.heart-33 { top: 37.5%; left: 27.5%; animation-delay: 19s; width: 50px; height: 50px; }
+.heart-34 { top: 37.5%; left: 72.5%; animation-delay: 19s; width: 50px; height: 50px; }
+
+.heart-35 { top: -25%; left: 5%; animation-delay: 0s; width: 50px; height: 50px; }
+.heart-36 { top: -25%; left: 20%; animation-delay: 4s; width: 45px; height: 45px; }
+.heart-37 { top: -25%; left: 35%; animation-delay: 16s; width: 55px; height: 55px; }
+.heart-38 { top: -25%; left: 50%; animation-delay: 19s; width: 50px; height: 50px; }
+.heart-39 { top: -25%; left: 65%; animation-delay: 19s; width: 50px; height: 50px; }
+.heart-40 { top: -25%; left: 80%; animation-delay: 12s; width: 55px; height: 55px; }
+.heart-41 { top: -25%; left: 95%; animation-delay: 8s; width: 60px; height: 60px; }
+
+.heart-42 { top: -12.5%; left: 12.5%; animation-delay: 19s; width: 50px; height: 50px; }
+.heart-43 { top: -12.5%; left: 27.5%; animation-delay: 19s; width: 50px; height: 50px; }
+.heart-44 { top: -12.5%; left: 42.5%; animation-delay: 19s; width: 50px; height: 50px; }
+.heart-45 { top: -12.5%; left: 57.5%; animation-delay: 19s; width: 50px; height: 50px; }
+.heart-46 { top: -12.5%; left: 72.5%; animation-delay: 19s; width: 50px; height: 50px; }
+.heart-47 { top: -12.5%; left: 87.5%; animation-delay: 19s; width: 50px; height: 50px; }
+
+.heart-48 { top: 0%; left: 50%; animation-delay: 19s; width: 50px; height: 50px; }
 
 /* Heart Float Animation */
 @keyframes float {
@@ -80,8 +110,10 @@ body {
 .title {
     font-size: 3em;
     color: #ffffff;
-    margin-top: 20vh;
+    margin-top: 25vh;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 2;
 }
 
 .subtitle {
